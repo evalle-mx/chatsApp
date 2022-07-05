@@ -28,12 +28,17 @@ touch config.env
 mkdir db 
 touch db/conn.js
 
-*** en este punto se puede ejecutar el server para probar connexion  *** 
+*** en este punto se puede ejecutar el server para probar connexion (comentando routes en server.js)  *** 
 node server.js
 
-# 
+
+
+# Route (integra control y servicio)
 mkdir routes
-touch routes/record.js
+touch routes/conv-route.js
+
+
+>> http://localhost:5000/conversation
 
 
 
@@ -72,3 +77,24 @@ MongoServerError: bad auth : Authentication failed.
   [Symbol(errorLabels)]: Set(1) { 'HandshakeError' }
 }
 ==> username/password es incorrecto.
+
+
+
+node:_http_outgoing:576
+    throw new ERR_HTTP_HEADERS_SENT('set');
+    ^
+
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at new NodeError (node:internal/errors:371:5)
+    at ServerResponse.setHeader (node:_http_outgoing:576:11)
+    at ServerResponse.header (/mnt/c/Users/Ernesto Valle/Documents/Workspace/NodeJS/chatsApp/server/node_modules/express/lib/response.js:794:10)
+
+==>   res.json( {} );    return res; no es un objeto valido
+
+
+
+/* Feedback al Tutorial: */
+
+1) route: Codigo en el Metodo Get  let db_connect = dbo.getDb('employees') no afecta toma en cuenta el parametro, en conn.js se establece como constante 
+2) route: Codigo en el Metodo update esta incompleto [no define accion collection().update(...) ]
+3) Se podria agregar un segmento opcional de pruebas usando postman o alguna otra herramienta
