@@ -16,12 +16,17 @@ const ObjectId = require('mongodb').ObjectId;
 convRoutes.route('/conversation')
     .get( function (req, res) {
         let db_connect = dbo.getDb();
-        //console.log('fetching All chats...');
+        let myquery = { agent:'Ernesto' };
+        // {};
+        console.log('fetching chats by...', myquery);
         db_connect
             .collection('chats')
-            .find( {} )
+            .find( myquery )
             .toArray( function (err, result) {
                 if(err) throw err;
+                if(result){
+                    console.log(`${result.length} records`);
+                }
                 res.json(result);
             });
     });

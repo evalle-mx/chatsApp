@@ -5,8 +5,6 @@
 # Carpeta global
 mkdir chatsApp
 cd chatsApp/
-# Inicio proyecto react
-npx create-react-app client
 
 # creacion e Inicio proyecto node
 mkdir server
@@ -42,7 +40,27 @@ touch routes/conv-route.js
 
 
 
+_________   FRONT END  _____________
 
+# Inicio proyecto react
+cd ..
+npx create-react-app client
+npm start
+
+# dependencias adicionales
+cd client
+npm install bootstrap react-router-dom
+
+
+# vaciar y crear nuevos archivos en src
+rm src/*
+touch src/index.js src/App.js
+
+
+# Crear componentes
+mkdir src/components
+cd src/components 
+touch create.js edit.js navbar.js convList.js
 
 
 
@@ -98,3 +116,6 @@ Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the cli
 1) route: Codigo en el Metodo Get  let db_connect = dbo.getDb('employees') no afecta toma en cuenta el parametro, en conn.js se establece como constante 
 2) route: Codigo en el Metodo update esta incompleto [no define accion collection().update(...) ]
 3) Se podria agregar un segmento opcional de pruebas usando postman o alguna otra herramienta
+
+
+4) rm src/**/* no funciona, se usa rm src/*
