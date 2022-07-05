@@ -1,0 +1,74 @@
+   https://www.mongodb.com/languages/mern-stack-tutorial  
+
+
+######  Creacion y uso   ######
+# Carpeta global
+mkdir chatsApp
+cd chatsApp/
+# Inicio proyecto react
+npx create-react-app client
+
+# creacion e Inicio proyecto node
+mkdir server
+cd server/
+npm init -y
+
+# Dependencias con Node package manager 
+npm install mongodb express cors dotenv
+
+=====
+mongodb. installs MongoDB database driver that allows your Node.js applications to connect to the database and work with data.
+express. installs the web framework for Node.js. (It will make our life easier.)
+cors. installs a Node.js package that allows cross origin resource sharing.
+dotenv. installs the module that loads environment variables from a .env file into process.env file. This lets you separate configuration files from the code.
+=====
+
+# crear y codificar modulo de conexion
+touch config.env
+mkdir db 
+touch db/conn.js
+
+*** en este punto se puede ejecutar el server para probar connexion  *** 
+node server.js
+
+# 
+mkdir routes
+touch routes/record.js
+
+
+
+
+
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+Error: querySrv ENOTFOUND _mongodb._tcp.sandbox.ihm9w.mongodb.net
+    at QueryReqWrap.onresolve [as oncomplete] (node:dns:213:19) {
+  errno: undefined,
+  code: 'ENOTFOUND',
+  syscall: 'querySrv',
+  hostname: '_mongodb._tcp.sandbox.ihm9w.mongodb.net'
+}
+==> hostname es incorrecto: ihm9w => icm9w
+
+
+
+MongoServerError: bad auth : Authentication failed.
+    at Connection.onMessage (/mnt/c/Users/Ernesto Valle/Documents/Workspace/NodeJS/chatsApp/server/node_modules/mongodb/lib/cmap/connection.js:210:30)    
+    at MessageStream.<anonymous> (/mnt/c/Users/Ernesto Valle/Documents/Workspace/NodeJS/chatsApp/server/node_modules/mongodb/lib/cmap/connection.js:63:60)
+    at MessageStream.emit (node:events:526:28)
+    at processIncomingData (/mnt/c/Users/Ernesto Valle/Documents/Workspace/NodeJS/chatsApp/server/node_modules/mongodb/lib/cmap/message_stream.js:132:20) 
+    at MessageStream._write (/mnt/c/Users/Ernesto Valle/Documents/Workspace/NodeJS/chatsApp/server/node_modules/mongodb/lib/cmap/message_stream.js:33:9)  
+    at writeOrBuffer (node:internal/streams/writable:389:12)
+    at _write (node:internal/streams/writable:330:10)
+    at MessageStream.Writable.write (node:internal/streams/writable:334:10)
+    at TLSSocket.ondata (node:internal/streams/readable:754:22)
+    at TLSSocket.emit (node:events:526:28) {
+  ok: 0,
+  code: 8000,
+  codeName: 'AtlasError',
+  [Symbol(errorLabels)]: Set(1) { 'HandshakeError' }
+}
+==> username/password es incorrecto.
