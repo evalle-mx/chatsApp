@@ -7,7 +7,7 @@ const Record = (props) => (
    <td>{props.record.title}</td>
    <td>{props.record.agent}</td>
    <td>
-     <Link className="btn btn-link" to={`/edit/${props.record._id}`}>Edit</Link> |
+     <Link className="btn btn-link" to={`/edit/${props.record.number}`}>Edit</Link> |
      <button className="btn btn-danger btn-sm"
        onClick={() => {
          //props.deleteRecord(props.record._id);
@@ -60,7 +60,7 @@ export default function RecordList() {
      return (
        <Record
          record={record}
-         deleteRecord={() => deleteRecord(record._id)}
+         deleteRecord={() => deleteRecord(record.number)}
          key={record._id}
        />
      );

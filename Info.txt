@@ -119,3 +119,5 @@ Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the cli
 
 
 4) rm src/**/* no funciona, se usa rm src/*
+
+5) No refresca despues de borrar
