@@ -12,7 +12,7 @@ const Record = (props) => (
       <small>{props.record.tags}</small>
     </td>
     <td>   
-      <Link className="btn btn-primary btn-sm" to={`/edit/${props.record._id}`}>Edit</Link>
+      <Link className="btn btn-primary btn-sm" to={`/edit/${props.record._id}`}> <i class="bi bi-pencil-square"></i> Edit</Link>
       &nbsp;
       <button className="btn btn-danger btn-sm"
        onClick={() => {
@@ -41,9 +41,9 @@ export default function RecordList() {
  
      const records = await response.json();
      records.forEach(doc=> {
-      if(doc.caseType){
-        doc.tags = JSON.stringify( doc.caseType );
-      }
+      if(doc.descriptions) doc.descriptionsTmp = JSON.stringify( doc.descriptions );
+      if(doc.caseType) doc.tags = doc.caseType.join(" | "); //JSON.stringify( doc.caseType );
+      if(doc.macros) doc.macrosTmp = JSON.stringify( doc.macros );      
      });
      setRecords(records);
    }
