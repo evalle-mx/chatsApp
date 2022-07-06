@@ -116,6 +116,7 @@ Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the cli
 1) route: Codigo en el Metodo Get  let db_connect = dbo.getDb('employees') no afecta toma en cuenta el parametro, en conn.js se establece como constante 
 2) route: Codigo en el Metodo update esta incompleto [no define accion collection().update(...) ]
 3) Se podria agregar un segmento opcional de pruebas usando postman o alguna otra herramienta
+   3.1) Probar con parametros diferentes a _id (name, position) en el request (Arroja excepcion BSONTypeError)
 
 
 4) rm src/**/* no funciona, se usa rm src/*
