@@ -3,20 +3,25 @@ import { Link } from "react-router-dom";
  
 const Record = (props) => (
  <tr>
-   <td>{props.record.number}</td>
-   <td>{props.record.title}</td>
-   <td>{props.record.agent}</td>
-   <td>
-     <Link className="btn btn-link" to={`/edit/${props.record.number}`}>Edit</Link> |
-     <button className="btn btn-danger btn-sm"
+    <td>
+      <a target="_blank" href={`https://app.intercom.com/a/apps/qq7v0gqb/inbox/inbox/all/conversations/${props.record.number}`} ><small>{props.record.number}</small></a>   
+    </td>
+    <td>{props.record.title}</td>
+    <td>{props.record.agent}</td>
+    <td>
+      <small>{props.record.tags}</small>
+    </td>
+    <td>   
+      <Link className="btn btn-primary btn-sm" to={`/edit/${props.record._id}`}> <i class="bi bi-pencil-square"></i> Edit</Link>
+      &nbsp;
+      <button className="btn btn-danger btn-sm"
        onClick={() => {
-         //props.deleteRecord(props.record._id);
-         props.deleteRecord(props.record.number);
-       }}
-     >
-       Delete
-     </button>
-   </td>
+         props.deleteRecord(props.record._id);
+        //  props.deleteRecord(props.record.number);
+       }} >
+       <i class="bi bi-trash"></i> Del
+      </button>
+    </td>
  </tr>
 );
  
@@ -35,6 +40,11 @@ export default function RecordList() {
      }
  
      const records = await response.json();
+     records.forEach(doc=> {
+      if(doc.descriptions) doc.descriptionsTmp = JSON.stringify( doc.descriptions );
+      if(doc.caseType) doc.tags = doc.caseType.join(" | "); //JSON.stringify( doc.caseType );
+      if(doc.macros) doc.macrosTmp = JSON.stringify( doc.macros );      
+     });
      setRecords(records);
    }
  
@@ -60,7 +70,7 @@ export default function RecordList() {
      return (
        <Record
          record={record}
-         deleteRecord={() => deleteRecord(record.number)}
+         deleteRecord={() => deleteRecord(record._id)}
          key={record._id}
        />
      );
@@ -74,10 +84,11 @@ export default function RecordList() {
      <table className="table table-striped" style={{ marginTop: 20 }}>
        <thead>
          <tr>
-           <th>number</th>
-           <th>title</th>
+           <th>Number</th>
+           <th>Title</th>
            <th>Agent</th>
-           <th>Action</th>
+           <th> <span alt="caseType">Tags</span></th>
+           <th>Actions</th>
          </tr>
        </thead>
        <tbody>{recordList()}</tbody>
