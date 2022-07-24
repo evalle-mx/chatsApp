@@ -97,6 +97,29 @@ MongoServerError: bad auth : Authentication failed.
 ==> username/password es incorrecto.
 
 
+MongoServerSelectionError: connection <monitor> to 34.230.146.149:27017 closed
+    at Timeout._onTimeout (/home/evalle/MyWorkspace/NodeJS/chatsApp/server/node_modules/mongodb/lib/sdam/topology.js:306:38)
+    at listOnTimeout (node:internal/timers:564:17)
+    at process.processTimers (node:internal/timers:507:7) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+    servers: Map(3) {
+      'sandbox-shard-00-00.icm9w.mongodb.net:27017' => [ServerDescription],
+      'sandbox-shard-00-01.icm9w.mongodb.net:27017' => [ServerDescription],
+      'sandbox-shard-00-02.icm9w.mongodb.net:27017' => [ServerDescription]
+    },
+    stale: false,
+    compatible: true,
+    heartbeatFrequencyMS: 10000,
+    localThresholdMS: 15,
+    setName: 'atlas-62cm69-shard-0',
+    logicalSessionTimeoutMinutes: undefined
+  },
+  code: undefined,
+  [Symbol(errorLabels)]: Set(0) {}
+}
+==> IP no en el Network Access list
+
 
 node:_http_outgoing:576
     throw new ERR_HTTP_HEADERS_SENT('set');
