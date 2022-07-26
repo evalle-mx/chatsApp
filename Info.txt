@@ -1,5 +1,13 @@
    https://www.mongodb.com/languages/mern-stack-tutorial  
 
+########################
+cd server 
+node server.js
+
+cd client
+npm start
+
+
 
 ######  Creacion y uso   ######
 # Carpeta global
@@ -35,10 +43,26 @@ node server.js
 mkdir routes
 touch routes/conv-route.js
 
+==> TODO:  Objeto Chat completo (type, slack, jira, etc), Get-All por Agente
 
 >> http://localhost:5000/conversation
 
 
+## GET/Read::
+http://localhost:5000/conversation    http://localhost:5000/conversation/62c5dc1a6ad89f495672cd01
+
+# Create
+http://localhost:5000/conversation/add
+{ "number":99987815335881, "title":"Testing for API", "agent":"Violeta", "caseType":[ "Testing", "Postman" ], 
+  "descriptions":[ "Esta es la primera linea de descripcion", "2a linea de descripcion" ], "macros":[ 30,25,99 ], "links":[], "slackThread":"https://mongodb.slack.com/archives/GAAT456QZ/p1658508842541299"}
+
+# Update
+http://localhost:5000/conversation/62e00797c838bc22e848fd35
+{ "number":99987815335881, "title":"Testing for API", "agent":"Violeta", "caseType":[ "Testing", "Postman" ], 
+  "descriptions":[ "Esta es la primera linea de descripcion", "2a linea de descripcion" ], "macros":[ 30,25,99 ], "links":[], "slackThread":"https://mongodb.slack.com/archives/GAAT456QZ/p1658508842541299"}
+
+# Delete
+http://localhost:5000/conversation/62c5dc1a6ad89f495672cd01
 
 _________   FRONT END  _____________
 
