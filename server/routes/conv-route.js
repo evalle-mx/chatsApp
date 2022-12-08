@@ -20,7 +20,7 @@ convRoutes.route('/conversation')
     .get( function (req, res) {
         let db_connect = dbo.getDb();
         let myquery = { agent:owner };
-        // {};
+        // let myquery = {};
         console.log(`fetching documents IN database: ${convColl}, by `, myquery);
         db_connect
             .collection(convColl)   //.collection('chats')

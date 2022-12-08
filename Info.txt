@@ -1,6 +1,6 @@
    https://www.mongodb.com/languages/mern-stack-tutorial  
 
-########################
+##### RUN ##### 
 cd server 
 node server.js
 
@@ -8,7 +8,35 @@ cd client
 npm start
 
 
+##### TESTING ##### 
+%%% SERVER  %%%%
+* Set IP in Network list and chec env variables
+>> http://localhost:5000/conversation
 
+## GET/Read::
+http://localhost:5000/conversation    http://localhost:5000/conversation/62c5dc1a6ad89f495672cd01
+
+# Create
+http://localhost:5000/conversation/add
+{ "number":99987815335881, "title":"Testing for API", "agent":"Violeta", "caseType":[ "Testing", "Postman" ], 
+  "descriptions":[ "Esta es la primera linea de descripcion", "2a linea de descripcion" ], "macros":[ 30,25,99 ], "links":[], "slackThread":"https://mongodb.slack.com/archives/GAAT456QZ/p1658508842541299"}
+
+# Update
+http://localhost:5000/conversation/62e00797c838bc22e848fd35
+{ "number":99987815335881, "title":"Testing for API", "agent":"Violeta", "caseType":[ "Testing", "Postman" ], 
+  "descriptions":[ "Esta es la primera linea de descripcion", "2a linea de descripcion" ], "macros":[ 30,25,99 ], "links":[], "slackThread":"https://mongodb.slack.com/archives/GAAT456QZ/p1658508842541299"}
+
+# Delete
+http://localhost:5000/conversation/62c5dc1a6ad89f495672cd01
+
+
+
+%%% CLIENT  %%%%
+* start server, then client and open http://localhost:3000/
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++    Instrucciones de codificacion  Servidor (Conecta con Instancia MongoDB)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 ######  Creacion y uso   ######
 # Carpeta global
 mkdir chatsApp
@@ -21,7 +49,6 @@ npm init -y
 
 # Dependencias con Node package manager 
 npm install mongodb express cors dotenv
-
 =====
 mongodb. installs MongoDB database driver that allows your Node.js applications to connect to the database and work with data.
 express. installs the web framework for Node.js. (It will make our life easier.)
@@ -45,26 +72,10 @@ touch routes/conv-route.js
 
 ==> TODO:  Objeto Chat completo (type, slack, jira, etc), Get-All por Agente
 
->> http://localhost:5000/conversation
 
-
-## GET/Read::
-http://localhost:5000/conversation    http://localhost:5000/conversation/62c5dc1a6ad89f495672cd01
-
-# Create
-http://localhost:5000/conversation/add
-{ "number":99987815335881, "title":"Testing for API", "agent":"Violeta", "caseType":[ "Testing", "Postman" ], 
-  "descriptions":[ "Esta es la primera linea de descripcion", "2a linea de descripcion" ], "macros":[ 30,25,99 ], "links":[], "slackThread":"https://mongodb.slack.com/archives/GAAT456QZ/p1658508842541299"}
-
-# Update
-http://localhost:5000/conversation/62e00797c838bc22e848fd35
-{ "number":99987815335881, "title":"Testing for API", "agent":"Violeta", "caseType":[ "Testing", "Postman" ], 
-  "descriptions":[ "Esta es la primera linea de descripcion", "2a linea de descripcion" ], "macros":[ 30,25,99 ], "links":[], "slackThread":"https://mongodb.slack.com/archives/GAAT456QZ/p1658508842541299"}
-
-# Delete
-http://localhost:5000/conversation/62c5dc1a6ad89f495672cd01
-
-_________   FRONT END  _____________
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++    Instrucciones de codificacion  Cliente (Conecta con server)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 # Inicio proyecto react
 cd ..
@@ -89,8 +100,8 @@ touch create.js edit.js navbar.js convList.js
 
 
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
-
+$  TROUBLESHOOTING
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 Error: querySrv ENOTFOUND _mongodb._tcp.sandbox.ihm9w.mongodb.net
     at QueryReqWrap.onresolve [as oncomplete] (node:dns:213:19) {
   errno: undefined,
