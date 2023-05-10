@@ -1,4 +1,18 @@
-   https://www.mongodb.com/languages/mern-stack-tutorial  
+#################################################################################
+##    2nd Version of Intercom-Chats BackEnd, using Standard Service inherence from MERN tutorial:
+##    https://www.mongodb.com/languages/mern-stack-tutorial
+##    MongoClient, express, Cors, Router
+##    Server(MAIN) > Route [dbo.getDb();]
+##    *Uses a common connection generated once
+##    *Consumed by HTTP-static/angular and REACT client
+#################################################################################
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%  ::Output::   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%    Get  [ { "_id":""}, {},{}, ... ]
+%%    Create,Read/upd/del:  {}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 ##### RUN ##### 
 cd server 
