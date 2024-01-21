@@ -19,12 +19,13 @@ const ObjectId = require('mongodb').ObjectId;
 convRoutes.route('/conversation')
     .get( function (req, res) {
         let db_connect = dbo.getDb();
-        let myquery = { agent:owner };
+        let myquery = {  };
         // let myquery = {};
         console.log(`fetching documents IN database: ${convColl}, by `, myquery);
         db_connect
             .collection(convColl)   //.collection('chats')
             .find( myquery )
+            .sort( {number:-1})
             .toArray( function (err, result) {
                 if(err) throw err;
                 if(result){
