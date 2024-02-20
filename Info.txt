@@ -7,6 +7,16 @@
 ##    *Consumed by HTTP-static/angular and REACT client
 #################################################################################
 
+######## SERVER (NodeJS <-> MongoDB)
+├── cors@2.8.5
+├── dotenv@16.0.1
+├── express@4.18.1
+├── mongodb@4.7.0
+└── nodemon@3.0.3
+
+######## Client (React <-> NodeJS)
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%  ::Output::   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%    Get  [ { "_id":""}, {},{}, ... ]
@@ -182,6 +192,16 @@ Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the cli
 ==>   res.json( {} );    return res; no es un objeto valido
 
 
+
+MongoServerSelectionError: 409C66D801000000:error:0A000438:SSL routines:ssl3_read_bytes:tlsv1 alert internal error:ssl/record/rec_layer_s3.c:1586:SSL alert number 80
+
+    at Timeout._onTimeout (/Users/ernesto.valle/Workspace/React/chatsApp_mern/server/node_modules/mongodb/lib/sdam/topology.js:306:38)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7) {
+  reason: TopologyDescription {
+    type: 'ReplicaSetNoPrimary',
+
+ ==> IP no esta en el Access List   
 
 /* Feedback al Tutorial: */
 
